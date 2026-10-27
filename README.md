@@ -1,31 +1,64 @@
-# oscp-jarvis
+# OSCP Jarvis
 
-My Claude Code setup for studying OSCP. Clone this into a Kali VM at home
-and run `claude` in the project root.
+An interactive OSCP study tutor made of plain files: `CLAUDE.md` +
+`.claude/skills/`. There's no backend, no shared account, no hosting — you
+clone this repo and point **your own** AI coding agent at it. Nobody else
+sees your sessions, your notes, or your lab IPs.
+
+It's built to teach methodology through back-and-forth, not to hand you a
+cheatsheet. The agent asks what you've tried, nudges before it answers, and
+makes you write things down — because that habit is most of what OSCP
+actually tests.
+
+## Quick start
 
 ```
-git clone <this repo>
-cd oscp-jarvis
-claude
+git clone https://github.com/saroha11/OSCP-Jarvis.git
+cd OSCP-Jarvis
 ```
+
+**With Claude Code** (what this was built against): run `claude` in this
+folder. It picks up `CLAUDE.md` and the skills automatically. Say `start` or
+just say hi — the `start-here` skill handles onboarding.
+
+**With any other agent** (Cursor, Aider, a plain chat model, etc.): paste
+`CLAUDE.md` in as your system prompt or first message. When a topic in
+`.claude/skills/*/SKILL.md` comes up (enumeration, privesc, a new box), paste
+that skill's file in too. The content is agent-agnostic by design.
 
 ## Layout
 
-- `CLAUDE.md` — tutor instructions (hint-first teaching, scope/ethics rules)
-- `.claude/skills/` — `hint-mode`, `recon-enum`, `web-attacks`, `linux-privesc`,
-  `windows-privesc`, `ad-attacks`, `box-notes`
-- `templates/box-notes.md` — per-machine note template
-- `boxes/` — one folder per machine worked, with notes + raw scan output
-- `STUDY_LOG.md` — running log of sessions and weak areas
+- `CLAUDE.md` — the tutor's rules: scope/ethics, teaching style, workflow
+- `.claude/skills/`
+  - `start-here` — interactive onboarding for a first session
+  - `hint-mode` — graduated hints instead of answers
+  - `recon-enum` — enumeration methodology
+  - `box-notes` — per-machine notes and study-log upkeep
+  - `web-attacks`, `linux-privesc`, `windows-privesc`, `ad-attacks` —
+    placeholders, filled in collaboratively as real boxes are worked, so the
+    content stays grounded in practice rather than being a generic dump
+- `templates/student-profile.md`, `templates/box-notes.md` — filled in per
+  student / per box
+- `STUDY_LOG.md` — running log of sessions and weak areas (yours, local —
+  not shared with anyone)
 
-`hint-mode` and `recon-enum` are filled in. The exploitation/privesc/AD
-skills (`web-attacks`, `linux-privesc`, `windows-privesc`, `ad-attacks`)
-start as placeholders — we fill them in together while working real
-TryHackMe/HTB/Proving Grounds boxes, so the content stays grounded in
-practice rather than being a generic dump.
+## Scope — read this
 
-## Scope
+Lab targets only: TryHackMe, HackTheBox, OffSec Proving Grounds/PEN-200, or
+your own VMs. Never point this at a real third-party system. The agent is
+instructed to confirm scope before scanning and to refuse anything else.
 
-Lab targets only (TryHackMe, HackTheBox, OffSec Proving Grounds/PEN-200,
-my own VMs). Never used against real third-party systems. Not used during
-the actual OSCP exam, which prohibits AI assistance.
+OffSec prohibits AI assistance **during the actual OSCP exam**. This is a
+study tool, not something to bring into the exam itself.
+
+## Contributing
+
+This is meant to grow from real study sessions, not from someone writing a
+giant exploit-technique dump up front. If you fill in parts of
+`web-attacks`/`linux-privesc`/`windows-privesc`/`ad-attacks` while working
+real boxes, PRs that generalize what you learned (no box-specific spoilers,
+no real-world target info) are welcome.
+
+## License
+
+MIT — see `LICENSE`.
