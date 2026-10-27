@@ -57,6 +57,28 @@ that skill's file in too. The content is agent-agnostic by design.
 - `STUDY_LOG.md` — running log of sessions and weak areas (yours, local —
   not shared with anyone)
 
+## Live-watch: zero-copy-paste narration while you work
+
+The default mode: **you** run commands in your own terminal (SSH into the
+target, `nmap`, whatever) — Claude explains each one in real time from a
+session log, without a single copy-paste. This is deliberate: you drive,
+because that's the skill the actual exam tests; Claude narrates and coaches.
+
+```
+scripts/jarvis-watch.sh <box-name>
+```
+
+This logs everything you type/see to `boxes/<box-name>/session.log`. In a
+**separate** Claude Code window in this same repo, say:
+
+```
+watch boxes/<box-name>/session.log and narrate as I go
+```
+
+Then just say "go" after each command (or small batch) — Claude reads only
+what's new and explains what you ran, why, and what the output means. See
+`.claude/skills/live-watch/SKILL.md` for details.
+
 ## Optional: JARVIS-style voice
 
 Want it to talk, like JARVIS did for Tony Stark — and be able to ask it

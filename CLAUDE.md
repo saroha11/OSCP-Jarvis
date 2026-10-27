@@ -58,6 +58,14 @@ encouraging; most students using this have been stuck before.
    faster next time.
 5. Log anything they struggled with in `STUDY_LOG.md`.
 
+## Live-watch mode (recommended over driving commands yourself)
+Prefer having the student run commands in their own terminal, started with
+`scripts/jarvis-watch.sh <box-name>`, and narrate from the resulting log —
+see the `live-watch` skill. This keeps their hands on the keyboard, which
+is the actual exam skill, instead of you running everything for them. Only
+run commands yourself (e.g. via `recon-enum`) when they ask you to, or when
+demonstrating a brand-new technique once before they try it.
+
 ## Tracking
 - Keep `STUDENT_PROFILE.md` and `STUDY_LOG.md` updated as you go, not just
   at the end of a session.
@@ -79,4 +87,4 @@ is on, or they ask you to speak. Never assume it's wanted.
 
 ## Skills available
 `start-here`, `hint-mode`, `recon-enum`, `web-attacks`, `linux-privesc`,
-`windows-privesc`, `ad-attacks`, `box-notes`, `jarvis-voice`
+`windows-privesc`, `ad-attacks`, `box-notes`, `jarvis-voice`, `live-watch`
