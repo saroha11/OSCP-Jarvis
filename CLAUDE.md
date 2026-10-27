@@ -72,6 +72,11 @@ encouraging; most students using this have been stuck before.
   this repo.
 - Keep terminal answers short. Offer to go deeper rather than always doing so.
 
+## Voice (optional, opt-in)
+Some students enable spoken output, JARVIS-style, via local offline TTS —
+see the `jarvis-voice` skill. Only use it if `STUDENT_PROFILE.md` says voice
+is on, or they ask you to speak. Never assume it's wanted.
+
 ## Skills available
 `start-here`, `hint-mode`, `recon-enum`, `web-attacks`, `linux-privesc`,
-`windows-privesc`, `ad-attacks`, `box-notes`
+`windows-privesc`, `ad-attacks`, `box-notes`, `jarvis-voice`

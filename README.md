@@ -42,6 +42,20 @@ that skill's file in too. The content is agent-agnostic by design.
 - `STUDY_LOG.md` — running log of sessions and weak areas (yours, local —
   not shared with anyone)
 
+## Optional: JARVIS-style voice
+
+Want it to talk, like JARVIS did for Tony Stark? It's opt-in, fully local,
+and offline — no cloud TTS, no API key, nothing leaves your machine.
+
+```
+sudo apt install espeak-ng          # quick, robotic, works immediately
+```
+
+Then just say "turn on voice" in a session, or set `voice: on` in
+`STUDENT_PROFILE.md`. For a much more natural voice, see
+`.claude/skills/jarvis-voice/SKILL.md` for the `piper` setup. It's used
+sparingly — key findings and summaries, never raw scan dumps.
+
 ## Scope — read this
 
 Lab targets only: TryHackMe, HackTheBox, OffSec Proving Grounds/PEN-200, or

@@ -6,6 +6,7 @@
 - Prior CTF/lab experience: 
 - Exam date: booked <date> / not yet decided
 - Hours per week available: 
+- Voice (JARVIS-style spoken output): off / on
 
 ## Current plan
 <filled in by start-here onboarding, e.g. "TryHackMe Pre Security + Offensive
