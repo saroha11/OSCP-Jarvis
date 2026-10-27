@@ -9,17 +9,32 @@ Gives this tutor a spoken voice in the terminal, the way JARVIS narrated
 things for Tony Stark — fully local and offline, no cloud TTS, no API key,
 nothing leaves the machine.
 
-## Turning it on
+## Turning it on (spoken output only)
 1. Install an engine on the Kali VM (pick one):
    - Quick, robotic, zero setup: `sudo apt install espeak-ng`
-   - Better voice, more setup: `pip install piper-tts` plus a downloaded
-     voice model (e.g. `en_US-lessac-medium`), then
+   - Better, more natural voice: `pip install piper-tts` plus a downloaded
+     voice model (e.g. `en_US-lessac-medium.onnx`), then
      `export JARVIS_PIPER_MODEL=/path/to/model.onnx`
 2. Make sure the VM's audio output actually reaches your speakers/headphones
    (VM audio passthrough — check VirtualBox/VMware audio settings if nothing
    plays).
 3. Set `voice: on` under the student's preferences in `STUDENT_PROFILE.md`
    (or just ask "turn on voice" / "speak this" in the session).
+
+## Two-way voice (ask questions out loud too)
+`scripts/jarvis-voice-chat.sh` is a push-to-talk loop: press Enter, speak a
+question, press Enter again, and it transcribes with **whisper.cpp** (free,
+local, offline) and speaks the answer back with Piper. Setup is in that
+script's header comment.
+
+Be upfront with the student about one real limitation: this runs in a
+**separate terminal** from the one they're typing in, and uses
+`claude -p --continue` to inject the transcribed question into the same
+ongoing conversation. It's not a true mid-sentence interrupt of a running
+reply — Claude Code has no built-in mic/speaker loop, so this script is
+glue, not a native feature. It works well for "pause, ask a question out
+loud, get a spoken answer, resume" — not for talking over an in-progress
+response.
 
 ## When to speak (if voice is on)
 Keep it to moments that deserve it — not every line of output:

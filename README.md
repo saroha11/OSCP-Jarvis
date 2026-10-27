@@ -44,17 +44,25 @@ that skill's file in too. The content is agent-agnostic by design.
 
 ## Optional: JARVIS-style voice
 
-Want it to talk, like JARVIS did for Tony Stark? It's opt-in, fully local,
-and offline — no cloud TTS, no API key, nothing leaves your machine.
+Want it to talk, like JARVIS did for Tony Stark — and be able to ask it
+questions out loud too? It's opt-in, fully local and offline: no cloud
+TTS/STT, no API key, nothing leaves your machine.
 
+**Spoken answers** (quick start):
 ```
 sudo apt install espeak-ng          # quick, robotic, works immediately
 ```
+Then say "turn on voice" in a session, or set `voice: on` in
+`STUDENT_PROFILE.md`. For a much more natural voice, install
+[Piper](https://github.com/rhasspy/piper) — see
+`.claude/skills/jarvis-voice/SKILL.md`. Used sparingly: key findings and
+summaries, never raw scan dumps.
 
-Then just say "turn on voice" in a session, or set `voice: on` in
-`STUDENT_PROFILE.md`. For a much more natural voice, see
-`.claude/skills/jarvis-voice/SKILL.md` for the `piper` setup. It's used
-sparingly — key findings and summaries, never raw scan dumps.
+**Ask it questions out loud too** (push-to-talk): `scripts/jarvis-voice-chat.sh`
+adds speech input via [whisper.cpp](https://github.com/ggml-org/whisper.cpp)
+(free, local, offline). Runs in its own terminal alongside your normal one —
+see the script's header comment for one-time setup, and
+`.claude/skills/jarvis-voice/SKILL.md` for the honest limitations.
 
 ## Scope — read this
 
