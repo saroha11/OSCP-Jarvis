@@ -5,10 +5,20 @@ description: Narrate a student's own terminal session live from a log file, with
 
 # Live watch
 
-The student runs commands themselves, in their own terminal, started with
-`scripts/jarvis-watch.sh <box-name>` (this logs everything to
-`boxes/<box-name>/session.log` via `script`). You narrate from that log in
-a separate Claude Code window — no pasting, ever.
+The student runs commands themselves, in their own terminal. Two ways to
+narrate, both zero-copy-paste:
+
+- **Manual trigger**: `scripts/jarvis-watch.sh <box-name>` logs to
+  `boxes/<box-name>/session.log` via `script`. You narrate when they say
+  "go"/"next" after each command, in a separate Claude Code window.
+- **Automatic overlay** (faster, recommended): `scripts/jarvis-live.sh
+  <box-name>` runs the whole thing in one tmux session — their real shell
+  in one pane, an auto-updating narration overlay in the other, driven by
+  a background watcher that notices when they pause after a command and
+  asks Claude to explain it automatically. No "go" needed at all. This is
+  the more interview-coach-style experience, built from clean terminal
+  text rather than screen-capture/OCR (which this setup doesn't need,
+  since the text is already available directly).
 
 ## Why this exists
 Running the commands yourself is the point — that's the exam skill. Claude

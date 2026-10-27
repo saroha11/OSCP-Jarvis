@@ -76,8 +76,21 @@ watch boxes/<box-name>/session.log and narrate as I go
 ```
 
 Then just say "go" after each command (or small batch) — Claude reads only
-what's new and explains what you ran, why, and what the output means. See
-`.claude/skills/live-watch/SKILL.md` for details.
+what's new and explains what you ran, why, and what the output means.
+
+**Faster, fully automatic version** — no "go" needed:
+
+```
+sudo apt install tmux inotify-tools   # one-time
+scripts/jarvis-live.sh <box-name>
+```
+
+One tmux session, two panes: your real shell on the left, an
+auto-updating narration overlay on the right. A background watcher notices
+when you pause after a command and asks Claude to explain it on its own —
+closest to an always-on coach, built from the terminal's actual text
+rather than screen-capture/OCR (which isn't needed here — see
+`.claude/skills/live-watch/SKILL.md` for why).
 
 ## Optional: JARVIS-style voice
 
