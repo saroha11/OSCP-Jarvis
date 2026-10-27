@@ -21,6 +21,21 @@ cd OSCP-Jarvis
 folder. It picks up `CLAUDE.md` and the skills automatically. Say `start` or
 just say hi — the `start-here` skill handles onboarding.
 
+Claude Code has no native desktop GUI on Linux — the terminal CLI above is
+the main way to run it on Kali, and it's where your actual pentest tools
+(`nmap`, `gobuster`, etc.) run too. If you'd rather have a split view —
+file tree and editor on one side, chat on the other — install VS Code and
+the Claude Code extension:
+
+```
+sudo apt install code                 # or the .deb from code.visualstudio.com
+code --install-extension anthropic.claude-code
+code .                                # open this folder, then open the Claude Code panel
+```
+
+Everything still runs as real commands in Kali underneath; VS Code is just
+a nicer window around the same CLI.
+
 **With any other agent** (Cursor, Aider, a plain chat model, etc.): paste
 `CLAUDE.md` in as your system prompt or first message. When a topic in
 `.claude/skills/*/SKILL.md` comes up (enumeration, privesc, a new box), paste
